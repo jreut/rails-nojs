@@ -1,0 +1,11 @@
+<h1>chats</h1>
+<% if @chats.empty? %>
+	<h2>no chats here :(</h2>
+<% else %>
+	<ul>
+		<% @chats.each do |chat| %>
+			<li><%= chat.updated_on %></li>
+		<% end %>
+	</ul>
+<% end %>
+<%= link_to "start a new chat", chats_path, method: :post %>

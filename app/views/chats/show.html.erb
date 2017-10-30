@@ -1,0 +1,21 @@
+<h1>chat <%= @chat.id %></h1>
+<h2>messages</h2>
+<% if @chat.messages.empty? %>
+	<h2>no messages yet!</h2>
+<% else %>
+	<ul>
+		<% @chat.messages.each do |message| %>
+			<li>
+				On <%= message.created_at.to_s(:short) %>,
+				<strong><%= message.user.name %></strong>
+				said
+				<q><%= message.content %></q>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+<%= form_with model: @new_message, url: chat_send_message_path(@chat) do |f| %>
+	<%= f.text_area :content, placeholder: 'type here' %>
+	<%= f.hidden_field :conversation_id %>
+	<%= f.submit 'send' %>
+<% end %>
