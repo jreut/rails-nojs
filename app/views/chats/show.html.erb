@@ -6,7 +6,7 @@
 	<ul>
 		<% @chat.messages.each do |message| %>
 			<li>
-				On <%= message.created_at.to_s(:short) %>,
+				<%= time_ago_in_words message.created_at, include_seconds: true %> ago,
 				<strong><%= message.user.name %></strong>
 				said
 				<q><%= message.content %></q>
