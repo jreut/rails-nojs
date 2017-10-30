@@ -1,4 +1,4 @@
-<h1>chat <%= @chat.id %></h1>
+<h1>chat with <%= @chat.participants.to_sentence %></h1>
 <h2>messages</h2>
 <% if @chat.messages.empty? %>
 	<h2>no messages yet!</h2>
