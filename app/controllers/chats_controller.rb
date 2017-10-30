@@ -19,6 +19,8 @@ class ChatsController < ApplicationController
 
   def set_user
     @current_user = User.find session[:user_id]
+  rescue ActiveRecord::RecordNotFound
+    redirect_to new_session_path
   end
 
   def set_chat
