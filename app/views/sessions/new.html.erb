@@ -1,0 +1,10 @@
+<h1>howdy partner</h1>
+<h2>log in, why dontchya?</h2>
+<% if @users.empty? %>
+	<em>where'd everybody go?</em>
+<% else %>
+	<%= form_with url: session_path do |f| %>
+		<%= f.select :user_id, @users.map { |u| [u.name, u.id] } %>
+		<%= f.submit 'login' %>
+	<% end %>
+<% end %>

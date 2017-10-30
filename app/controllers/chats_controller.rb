@@ -3,7 +3,7 @@ class ChatsController < ApplicationController
   before_action :set_chat, only: %i[show]
 
   def index
-    @chats = @current_user.conversations
+    @chats = @current_user.conversations.uniq
   end
 
   def create
@@ -18,7 +18,7 @@ class ChatsController < ApplicationController
   private
 
   def set_user
-    @current_user = User.first
+    @current_user = User.find session[:user_id]
   end
 
   def set_chat

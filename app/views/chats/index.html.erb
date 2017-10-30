@@ -4,7 +4,7 @@
 <% else %>
 	<ul>
 		<% @chats.each do |chat| %>
-			<li><%= chat.updated_on %></li>
+			<li><%= link_to chat.id, chat_path(chat.id) %></li>
 		<% end %>
 	</ul>
 <% end %>
