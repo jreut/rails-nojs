@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
 
   def create
     session[:user_id] = create_params[:user_id]
+    # for the ActionCable connection
+    cookies.encrypted[:user_id] = session[:user_id]
     redirect_to chats_path
   end
 

@@ -5,6 +5,7 @@ class SendMessagesController < ApplicationController
     message = Message.create create_params.merge(
       user: @current_user
     )
+    ActionCable.server.broadcast "chat_#{message.conversation_id}", message.content
     redirect_to chat_path(message.conversation)
   end
 
