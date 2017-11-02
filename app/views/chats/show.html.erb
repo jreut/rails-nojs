@@ -14,6 +14,7 @@
 		<% end %>
 	</ul>
 <% end %>
+<em>Current as of <%= DateTime.now.to_s(:long) %></em>
 <%= form_with model: @new_message, url: chat_send_message_path(@chat) do |f| %>
 	<%= f.text_area :content, placeholder: 'type here' %>
 	<%= f.hidden_field :conversation_id %>
