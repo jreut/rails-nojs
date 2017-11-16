@@ -8,7 +8,7 @@ class ChatsController < ApplicationController
 
   def create
     chat = Conversation.create
-    redirect_to :show, id: chat.id
+    redirect_to action: :show, id: chat.id
   end
 
   def show
